@@ -103,7 +103,6 @@ proxy-providers:
       url: "__CF_SECRET_JMS_SUB_URL__"
       interval: 180
       timeout: 3000
-      lazy: true
       expected-status: 204
 
   LiangXin:
@@ -131,7 +130,6 @@ proxy-providers:
       url: "__CF_SECRET_MESL_SUB_URL__"
       interval: 180
       timeout: 3000
-      lazy: false
       expected-status: 204
 
 dns:
