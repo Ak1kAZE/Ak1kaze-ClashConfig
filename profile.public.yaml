@@ -86,7 +86,7 @@ proxy-providers:
     path: ./CloudFlare.yaml
     health-check:
       enable: true
-      url: "__CF_SECRET_CLOUDFLARE_SUB_URL__"
+      url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       lazy: false
@@ -100,7 +100,7 @@ proxy-providers:
     path: ./JMS.yaml
     health-check:
       enable: true
-      url: "__CF_SECRET_JMS_SUB_URL__"
+      url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       expected-status: 204
@@ -113,7 +113,7 @@ proxy-providers:
     path: ./LiangXin.yaml
     health-check:
       enable: true
-      url: "__CF_SECRET_LIANGXIN_SUB_URL__"
+      url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       lazy: false
@@ -127,7 +127,7 @@ proxy-providers:
     path: ./MESL.yaml
     health-check:
       enable: true
-      url: "__CF_SECRET_MESL_SUB_URL__"
+      url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       expected-status: 204
