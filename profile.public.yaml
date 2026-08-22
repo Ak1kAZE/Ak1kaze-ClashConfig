@@ -83,7 +83,7 @@ proxy-providers:
     url: "__CF_SECRET_CLOUDFLARE_SUB_URL__"
 
     interval: 10800
-    path: ./CloudFlare.yaml
+    path: ./CloudFlare_new.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -242,9 +242,9 @@ proxy-groups:
       - 🚀JMS
       - 🚀LiangXin
       - 🚀MESL
-      - 🪄CloudFlare
+      - ☁️CloudFlare
 
-  - name: 🪄CloudFlare
+  - name: ☁️CloudFlare
     type: url-test
     url: https://www.gstatic.com/generate_204
     expected-status: 204
@@ -274,7 +274,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
-      - 🪄CloudFlare
+      - ☁️CloudFlare
       - 香港节点
       - 日本节点
       - 美国节点
@@ -364,7 +364,7 @@ proxy-groups:
       - 🚀JMS
       - 🚀LiangXin
       - 🚀MESL
-      - 🪄CloudFlare
+      - ☁️CloudFlare
       - 香港节点
       - 日本节点
       - 美国节点
