@@ -1,0 +1,703 @@
+mixed-port: 7897
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: warning
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+profile:
+  store-selected: false
+  store-fake-ip: true
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+sniffer:
+  enable: true
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+    QUIC:
+      ports:
+      - 443
+      - 8443
+  skip-domain:
+  - Mijia Cloud
+  - dlg.io.mi.com
+  - "+.googlevideo.com"
+  - "+.douyin.com"
+  - "+.douyincdn.com"
+  - "+.douyinpic.com"
+  - "+.douyinstatic.com"
+  - "+.douyinliving.com"
+  - "+.amemv.com"
+  - "+.snssdk.com"
+  - "+.byteimg.com"
+  - "+.pstatp.com"
+  - "+.xiaohongshu.com"
+  - "+.xhscdn.com"
+  - "+.xhscdn.net"
+  - "+.xhslink.com"
+  - "+.xhsimg.com"
+  - "+.taobao.com"
+  - "+.tmall.com"
+  - "+.tbcdn.cn"
+  - "+.alicdn.com"
+  - "+.alibaba.com"
+  - "+.alibabausercontent.com"
+  - "+.alipay.com"
+  - "+.alipayobjects.com"
+  - "+.goofish.com"
+  - "+.idlefish.com"
+  - "+.aliyun.com"
+  - "+.aliyuncs.com"
+  - "+.mmstat.com"
+  - "+.cainiao.com"
+  - "+.amap.com"
+  - "+.autonavi.com"
+  - "+.115.com"
+  - "+.115cdn.com"
+  - "+.115cdn.net"
+  - "+.115img.com"
+  - "+.116cd.cn"
+  - "+.116cd.com"
+  - "+.116cd.net"
+  - "+.anxia.com"
+  - "+.sq.cc"
+  - fhnfile.oss-cn-shenzhen.aliyuncs.com
+
+proxy-providers:
+  CloudFlare:
+    type: http
+    url: "__CF_SECRET_CLOUDFLARE_SUB_URL__"
+
+    interval: 10800
+    path: ./CloudFlare.yaml
+    health-check:
+      enable: true
+      url: "__CF_SECRET_CLOUDFLARE_SUB_URL__"
+      interval: 180
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+  JMS:
+    type: http
+    url: "__CF_SECRET_JMS_SUB_URL__"
+
+    interval: 10800
+    path: ./JMS.yaml
+    health-check:
+      enable: true
+      url: "__CF_SECRET_JMS_SUB_URL__"
+      interval: 180
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+
+  LiangXin:
+    type: http
+    url: "__CF_SECRET_LIANGXIN_SUB_URL__"
+
+    interval: 10800
+    path: ./LiangXin.yaml
+    health-check:
+      enable: true
+      url: "__CF_SECRET_LIANGXIN_SUB_URL__"
+      interval: 180
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+  MESL:
+    type: http
+    url: "__CF_SECRET_MESL_SUB_URL__"
+
+    interval: 10800
+    path: ./MESL.yaml
+    health-check:
+      enable: true
+      url: "__CF_SECRET_MESL_SUB_URL__"
+      interval: 180
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  cache-algorithm: arc
+  ipv6: true
+  prefer-ipv6: false
+  prefer-h3: false
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-range6: fdfe:dcba:9876::1/64
+  fake-ip-filter:
+  - "*.lan"
+  - "*.local"
+  - "+.localdomain"
+  - localhost.ptlogin2.qq.com
+  - time.windows.com
+  - time.apple.com
+  - time.android.com
+  - "+.xn--ngstr-lra8j.com"
+  - "+.ntp.org.cn"
+  - "+.pool.ntp.org"
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver-policy:
+    "geosite:private,cn,geolocation-cn,microsoft@cn,steam@cn":
+    - 223.5.5.5
+    - 119.29.29.29
+    "+.google.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.googleapis.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.googleapis.cn":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.gstatic.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.gvt1.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.gvt2.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.gvt3.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.googleusercontent.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.ggpht.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.android.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.xn--ngstr-lra8j.com":
+    - https://1.1.1.1/dns-query#谷歌服务
+    - https://dns.google/dns-query#谷歌服务
+    "+.openai.com":
+    - https://1.1.1.1/dns-query#AI服务
+    - https://dns.google/dns-query#AI服务
+    "+.chatgpt.com":
+    - https://1.1.1.1/dns-query#AI服务
+    - https://dns.google/dns-query#AI服务
+    "+.anthropic.com":
+    - https://1.1.1.1/dns-query#AI服务
+    - https://dns.google/dns-query#AI服务
+    "+.claude.ai":
+    - https://1.1.1.1/dns-query#AI服务
+    - https://dns.google/dns-query#AI服务
+    "geosite:geolocation-!cn":
+    - https://1.1.1.1/dns-query#国外网站
+    - https://dns.google/dns-query#国外网站
+  nameserver:
+  - https://1.1.1.1/dns-query#国外网站
+  - https://1.0.0.1/dns-query#国外网站
+  - https://dns.google/dns-query#国外网站
+  fallback:
+  - https://1.1.1.1/dns-query#国外网站
+  - https://dns.google/dns-query#国外网站
+  proxy-server-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  direct-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+  direct-nameserver-follow-policy: true
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+
+proxy-groups:
+
+  - name: 全局机场
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    proxies:
+      - 🚀JMS
+      - 🚀LiangXin
+      - 🚀MESL
+      - 🪄CloudFlare
+
+  - name: 🪄CloudFlare
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    use:
+      - CloudFlare
+
+  - name: 🚀JMS
+    type: select
+    use:
+      - JMS
+
+  - name: 🚀LiangXin
+    type: select
+    use:
+      - LiangXin
+
+  - name: 🚀MESL
+    type: select
+    use:
+      - MESL
+
+  - name: 国外网站
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    proxies: &G
+      - 全局机场
+      - 🚀JMS
+      - 🪄CloudFlare
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 流媒体专用
+
+  - name: 国内直连
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+    proxies: &C
+      - DIRECT
+      - 全局机场
+
+
+  - name: 苹果APN
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Apple_2.png
+    proxies:
+      *G
+
+  - name: AI服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/ChatGPT.png
+    proxies:
+      *G
+
+  - name: 电报消息
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
+    proxies:
+      *G
+
+  - name: Spotify
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Spotify.png
+    proxies:
+      *G
+
+  - name: Twitter
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Twitter.png
+    proxies:
+      *G
+
+  - name: YouTube
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    proxies:
+      *G
+
+  - name: 谷歌服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Google.png
+    proxies:
+      *G
+
+  - name: 哔哩哔哩
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    proxies:
+      *C
+
+  - name: 游戏下载
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
+    proxies:
+      *C
+
+  - name: 游戏平台
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    proxies:
+      *G
+
+  - name: 自定义规则
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Server.png
+    proxies:
+      *G
+
+  - name: 漏网之鱼
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    proxies:
+      - DIRECT
+      - 全局机场
+      - 🚀JMS
+      - 🚀LiangXin
+      - 🚀MESL
+      - 🪄CloudFlare
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+
+  - name: 白名单规则
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Blackhole.png
+    proxies:
+      *C
+
+  - name: 流媒体专用
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    lazy: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Media.png
+    use:
+      - LiangXin
+      - MESL
+    filter: 流媒体|视频
+
+
+  - name: 香港节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    use:
+      - LiangXin
+      - CloudFlare
+      - MESL
+    filter: 港|🇭🇰|HK|(?i)Hong
+
+
+  - name: 日本节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    lazy: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    use:
+      - LiangXin
+      - CloudFlare
+      - MESL
+    filter: 日本|东京|🇯🇵|JP|(?i)Japan
+
+  - name: 台湾节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+    use:
+      - LiangXin
+      - CloudFlare
+      - MESL
+    filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
+
+
+  - name: 美国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    use:
+      - LiangXin
+      - CloudFlare
+      - MESL
+    filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
+
+
+
+
+rule-providers:
+
+  AppleAPN:
+    behavior: classical
+    format: text
+    type: http
+    url: "https://raw.githubusercontent.com/mrbruce516/apns-fix/refs/heads/main/Apple_APNs.list"
+    interval: 86400
+    path: ./ruleset/AppleAPN.txt
+
+  Whitelist:
+    behavior: classical
+    format: text
+    type: http
+    url: "https://raw.githubusercontent.com/Ak1kAZE/Clash_Ruleset/refs/heads/main/ProxyBlackList.list"
+    interval: 86400
+    path: ./ruleset/Whitelist.txt
+
+  xiaomi:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/XiaoMi/XiaoMi.yaml"
+    interval: 86400
+    path: ./ruleset/xiaomi.yaml
+
+  GameDownload:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/GameDownload/GameDownload.list"
+    path: ./ruleset/GameDownload.txt
+    interval: 86400
+
+  GameDownloadCN:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.list"
+    path: ./ruleset/GameDownloadCN.txt
+    interval: 86400
+
+  OpenAi:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list"
+    path: ./ruleset/OpenAi.txt
+    interval: 86400
+
+  Telegram:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list"
+    path: ./ruleset/Telegram.txt
+    interval: 86400
+
+  Spotify:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.list"
+    path: ./ruleset/Spotify.txt
+    interval: 86400
+
+  Twitter:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter.list"
+    path: ./ruleset/Twitter.txt
+    interval: 86400
+
+  YouTube:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list"
+    path: ./ruleset/YouTube.txt
+    interval: 86400
+
+  Google:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list"
+    path: ./ruleset/Google.txt
+    interval: 86400
+
+
+  BiliBili:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.list"
+    path: ./ruleset/BiliBili.txt
+    interval: 86400
+
+  Game:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list"
+    path: ./ruleset/Game.txt
+    interval: 86400
+
+  Custom:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/Ak1kAZE/Clash_Ruleset/refs/heads/main/Custom_ProxyRule.list"
+    path: ./ruleset/Custom.txt
+    interval: 86400
+
+  Global:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global_Domain_For_Clash.txt"
+    path: ./ruleset/Global.txt
+    interval: 86400
+
+  China:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/China/China_Domain_For_Clash.txt"
+    path: ./ruleset/China.txt
+    interval: 86400
+
+  Advertising:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml"
+    interval: 86400
+    path: ./ruleset/Advertising.yaml
+  Advertising_Domain:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising_Domain.yaml"
+    interval: 86400
+    path: ./ruleset/Advertising_Domain.yaml
+
+rules:
+    # 核心优化：强制阿里系应用放弃 QUIC (UDP 443)，瞬间回退 TCP 解决转圈慢的问题
+    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,alibaba)),REJECT
+
+    - RULE-SET,AppleAPN,苹果APN,no-resolve
+
+    # 泄漏测试站点强制走代理，避免 geosite 误判为国内直连
+    - DOMAIN-SUFFIX,browserleaks.com,国外网站
+    - DOMAIN-SUFFIX,browserleaks.org,国外网站
+    - DOMAIN-SUFFIX,browserleaks.net,国外网站
+    - DOMAIN-SUFFIX,dnsleaktest.com,国外网站
+    - DOMAIN-SUFFIX,ipleak.net,国外网站
+
+    - GEOSITE,private,DIRECT
+
+    # 核心优化：阿里系服务直连 (替代原本冗长的 DOMAIN-SUFFIX，涵盖更全)
+    - GEOSITE,alibaba,DIRECT
+
+    # 115 专属直连
+    - DOMAIN-SUFFIX,115.com,国内直连
+    - DOMAIN-SUFFIX,115cdn.com,国内直连
+    - DOMAIN-SUFFIX,115cdn.net,国内直连
+    - DOMAIN-SUFFIX,115img.com,国内直连
+    - DOMAIN-SUFFIX,116cd.cn,国内直连
+    - DOMAIN-SUFFIX,116cd.com,国内直连
+    - DOMAIN-SUFFIX,116cd.net,国内直连
+    - DOMAIN-SUFFIX,anxia.com,国内直连
+    - DOMAIN-SUFFIX,sq.cc,国内直连
+    - DOMAIN,fhnfile.oss-cn-shenzhen.aliyuncs.com,国内直连
+
+    # 局域网与私有 IP 放行
+    - IP-CIDR6,::1/128,DIRECT,no-resolve
+    - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+    - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+    - IP-CIDR6,ff00::/8,DIRECT,no-resolve
+    - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+    - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+    - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+    - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+    - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+    - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+    - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+    - IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
+
+    # 代理规则 (AI 品牌与 Google 核心服务)
+    - DOMAIN-SUFFIX,openai.com,AI服务
+    - DOMAIN-SUFFIX,chatgpt.com,AI服务
+    - DOMAIN-SUFFIX,anthropic.com,AI服务
+    - DOMAIN-SUFFIX,claude.ai,AI服务
+    - DOMAIN-SUFFIX,google.com,谷歌服务
+    - DOMAIN-SUFFIX,googleapis.com,谷歌服务
+    - DOMAIN-SUFFIX,googleapis.cn,谷歌服务
+    - DOMAIN-SUFFIX,gstatic.com,谷歌服务
+    - DOMAIN-SUFFIX,gvt1.com,谷歌服务
+    - DOMAIN-SUFFIX,gvt2.com,谷歌服务
+    - DOMAIN-SUFFIX,gvt3.com,谷歌服务
+    - DOMAIN-SUFFIX,googleusercontent.com,谷歌服务
+    - DOMAIN-SUFFIX,ggpht.com,谷歌服务
+    - DOMAIN-SUFFIX,android.com,谷歌服务
+    - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,谷歌服务
+
+    # 基础规则集匹配
+    - GEOSITE,google,国外网站
+    - GEOSITE,youtube,YouTube
+    - GEOSITE,telegram,电报消息
+    - GEOSITE,github,国外网站
+    - GEOSITE,category-games@cn,国内直连
+    - GEOSITE,apple-cn,国内直连
+    - GEOSITE,apple,国内直连
+    - GEOSITE,microsoft@cn,国内直连
+    - GEOSITE,steam@cn,国内直连
+    - DOMAIN-SUFFIX,cn,国内直连
+    - DOMAIN-SUFFIX,中国,国内直连
+    - DOMAIN-SUFFIX,公司,国内直连
+    - DOMAIN-SUFFIX,网络,国内直连
+
+    # - RULE-SET,LocalAreaNetwork,DIRECT
+    # - RULE-SET,UnBan,DIRECT
+    - RULE-SET,Whitelist,白名单规则
+    - RULE-SET,xiaomi,国内直连
+    - RULE-SET,Advertising,🛑 广告拦截
+    - RULE-SET,Advertising_Domain,🛑 广告拦截
+    - RULE-SET,GameDownload,游戏下载
+    - RULE-SET,GameDownloadCN,游戏下载
+    - RULE-SET,Custom,自定义规则
+    - RULE-SET,Telegram,电报消息
+    - RULE-SET,Spotify,Spotify
+    - RULE-SET,OpenAi,AI服务
+    - RULE-SET,Twitter,Twitter
+    - RULE-SET,Google,谷歌服务
+    - RULE-SET,YouTube,YouTube
+    - RULE-SET,Global,国外网站
+    - RULE-SET,China,国内直连
+    - RULE-SET,BiliBili,哔哩哔哩
+    - RULE-SET,Game,游戏平台
+    # 国内与国外保底分流规则
+    - GEOSITE,cn,DIRECT
+    - GEOSITE,geolocation-cn,DIRECT
+    - GEOIP,CN,DIRECT,no-resolve
+    - GEOSITE,geolocation-!cn,漏网之鱼
+    - MATCH,漏网之鱼
