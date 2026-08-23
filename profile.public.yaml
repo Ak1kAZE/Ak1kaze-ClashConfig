@@ -7,7 +7,7 @@ ipv6: false
 unified-delay: true
 tcp-concurrent: true
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 geodata-mode: true
 geo-auto-update: true
