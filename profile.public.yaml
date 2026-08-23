@@ -674,6 +674,10 @@ rules:
     - DOMAIN-SUFFIX,公司,国内直连
     - DOMAIN-SUFFIX,网络,国内直连
 
+    - DOMAIN,checkip.synology.com,DIRECT
+    - DOMAIN,ddns.synology.com,DIRECT
+    - DOMAIN,checkin.synology.com,DIRECT
+
     # - RULE-SET,LocalAreaNetwork,DIRECT
     # - RULE-SET,UnBan,DIRECT
     - RULE-SET,Whitelist,白名单规则
