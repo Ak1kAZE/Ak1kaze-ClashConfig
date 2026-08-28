@@ -599,6 +599,7 @@ rule-providers:
     path: ./ruleset/Advertising_Domain.yaml
 
 rules:
+    - PROCESS-PATH,/Users/ak1kaze/Desktop/yx/yx,DIRECT
     # 核心优化：强制阿里系应用放弃 QUIC (UDP 443)，瞬间回退 TCP 解决转圈慢的问题
     - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,alibaba)),REJECT
 
