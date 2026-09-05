@@ -105,20 +105,6 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  LiangXin:
-    type: http
-    url: "__CF_SECRET_LIANGXIN_SUB_URL__"
-
-    interval: 10800
-    path: ./LiangXin.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      lazy: false
-      expected-status: 204
-
   MESL:
     type: http
     url: "__CF_SECRET_MESL_SUB_URL__"
@@ -240,7 +226,6 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
-      - 🚀LiangXin
       - 🚀MESL
       - ☁️CloudFlare
 
@@ -257,11 +242,6 @@ proxy-groups:
     type: select
     use:
       - JMS
-
-  - name: 🚀LiangXin
-    type: select
-    use:
-      - LiangXin
 
   - name: 🚀MESL
     type: select
@@ -362,7 +342,6 @@ proxy-groups:
       - DIRECT
       - 全局机场
       - 🚀JMS
-      - 🚀LiangXin
       - 🚀MESL
       - ☁️CloudFlare
       - 香港节点
@@ -392,7 +371,6 @@ proxy-groups:
     lazy: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Media.png
     use:
-      - LiangXin
       - MESL
     filter: 流媒体|视频
 
@@ -405,7 +383,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
-      - LiangXin
       - CloudFlare
       - MESL
     filter: 港|🇭🇰|HK|(?i)Hong
@@ -420,7 +397,6 @@ proxy-groups:
     lazy: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
-      - LiangXin
       - CloudFlare
       - MESL
     filter: 日本|东京|🇯🇵|JP|(?i)Japan
@@ -433,7 +409,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
-      - LiangXin
       - CloudFlare
       - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
@@ -447,7 +422,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
-      - LiangXin
       - CloudFlare
       - MESL
     filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
