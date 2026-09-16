@@ -255,7 +255,8 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 台湾节点
-      - 流媒体专用
+      - DIRECT
+
 
   - name: 国内直连
     type: select
@@ -271,6 +272,12 @@ proxy-groups:
     proxies:
       *G
 
+  - name: 苹果服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Apple_2.png
+    proxies:
+      *G
+ 
   - name: AI服务
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/ChatGPT.png
@@ -427,6 +434,14 @@ proxy-groups:
 
 rule-providers:
 
+  Apple:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Domain_For_Clash.txt"
+    path: ./ruleset/Apple_All.txt
+    interval: 86400
+    
   AppleAPN:
     behavior: classical
     format: text
@@ -574,6 +589,7 @@ rules:
     - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,alibaba)),REJECT
 
     - RULE-SET,AppleAPN,苹果APN,no-resolve
+    - RULE-SET,Apple,苹果服务
 
     # 泄漏测试站点强制走代理，避免 geosite 误判为国内直连
     - DOMAIN-SUFFIX,browserleaks.com,国外网站
