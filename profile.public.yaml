@@ -364,19 +364,6 @@ proxy-groups:
     proxies:
       *C
 
-  - name: 流媒体专用
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    expected-status: 204
-    interval: 180
-    tolerance: 50
-    lazy: false
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Media.png
-    use:
-      - MESL
-    filter: 流媒体|视频
-
-
   - name: 香港节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -435,7 +422,7 @@ rule-providers:
 
   Apple:
     type: http
-    behavior: classical
+    behavior: domain
     format: text
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Domain_For_Clash.txt"
     path: ./ruleset/Apple_All.txt
@@ -555,7 +542,7 @@ rule-providers:
 
   Global:
     type: http
-    behavior: classical
+    behavior: domain
     format: text
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global_Domain_For_Clash.txt"
     path: ./ruleset/Global.txt
@@ -563,7 +550,7 @@ rule-providers:
 
   China:
     type: http
-    behavior: classical
+    behavior: domain
     format: text
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/China/China_Domain_For_Clash.txt"
     path: ./ruleset/China.txt
@@ -576,7 +563,7 @@ rule-providers:
     interval: 86400
     path: ./ruleset/Advertising.yaml
   Advertising_Domain:
-    behavior: classical
+    behavior: domain
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Advertising/Advertising_Domain.yaml"
     interval: 86400
@@ -646,7 +633,7 @@ rules:
     - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,谷歌服务
 
     # 基础规则集匹配
-    - GEOSITE,google,国外网站
+    - GEOSITE,google,谷歌服务
     - GEOSITE,youtube,YouTube
     - GEOSITE,telegram,电报消息
     - GEOSITE,github,国外网站
