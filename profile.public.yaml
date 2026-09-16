@@ -636,8 +636,6 @@ rules:
     - GEOSITE,telegram,电报消息
     - GEOSITE,github,国外网站
     - GEOSITE,category-games@cn,国内直连
-    - GEOSITE,apple-cn,国内直连
-    - GEOSITE,apple,国内直连
     - GEOSITE,microsoft@cn,国内直连
     - GEOSITE,steam@cn,国内直连
     - DOMAIN-SUFFIX,cn,国内直连
