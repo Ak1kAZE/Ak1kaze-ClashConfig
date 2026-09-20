@@ -656,13 +656,15 @@ rules:
 
     # - RULE-SET,LocalAreaNetwork,DIRECT
     # - RULE-SET,UnBan,DIRECT
-    - RULE-SET,Whitelist,白名单规则
-    - RULE-SET,xiaomi,国内直连
     - RULE-SET,Advertising,🛑 广告拦截
-    - RULE-SET,Advertising_Domain,🛑 广告拦截
+    - RULE-SET,Advertising_Domain,🛑 广告拦截    
+    - RULE-SET,Whitelist,白名单规则
+    - RULE-SET,Custom,自定义规则    
+    - RULE-SET,xiaomi,国内直连
+    - RULE-SET,Game,游戏平台
     - RULE-SET,GameDownload,游戏下载
     - RULE-SET,GameDownloadCN,游戏下载
-    - RULE-SET,Custom,自定义规则
+    - RULE-SET,BiliBili,哔哩哔哩    
     - RULE-SET,Telegram,电报消息
     - RULE-SET,Spotify,Spotify
     - RULE-SET,OpenAi,AI服务
@@ -671,8 +673,6 @@ rules:
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Global,国外网站
     - RULE-SET,China,国内直连
-    - RULE-SET,BiliBili,哔哩哔哩
-    - RULE-SET,Game,游戏平台
     # 国内与国外保底分流规则
     - GEOSITE,cn,DIRECT
     - GEOSITE,geolocation-cn,DIRECT
