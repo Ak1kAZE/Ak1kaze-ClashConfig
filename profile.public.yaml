@@ -669,8 +669,8 @@ rules:
     - RULE-SET,Spotify,Spotify
     - RULE-SET,OpenAi,AI服务
     - RULE-SET,Twitter,Twitter
+    - RULE-SET,YouTube,YouTube    
     - RULE-SET,Google,谷歌服务
-    - RULE-SET,YouTube,YouTube
     - RULE-SET,Global,国外网站
     - RULE-SET,China,国内直连
     # 国内与国外保底分流规则
