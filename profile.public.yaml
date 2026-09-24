@@ -677,5 +677,5 @@ rules:
     - GEOSITE,cn,DIRECT
     - GEOSITE,geolocation-cn,DIRECT
     - GEOIP,CN,DIRECT,no-resolve
-    - GEOSITE,geolocation-!cn,漏网之鱼
+    - GEOSITE,geolocation-!cn,国外网站
     - MATCH,漏网之鱼
