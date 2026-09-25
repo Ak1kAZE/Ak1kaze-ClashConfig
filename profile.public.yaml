@@ -578,6 +578,9 @@ rules:
     - PROCESS-PATH,/Users/ak1kaze/Desktop/yx/yx,DIRECT
     # 核心优化：强制阿里系应用放弃 QUIC (UDP 443)，瞬间回退 TCP 解决转圈慢的问题
     - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,alibaba)),REJECT
+    # Google / YouTube 禁用 QUIC，让浏览器回退 TCP
+    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,google)),REJECT
+    - AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,youtube)),REJECT
 
     - RULE-SET,AppleAPN,苹果APN,no-resolve
     - RULE-SET,Apple,苹果服务
