@@ -230,12 +230,7 @@ proxy-groups:
       - ☁️CloudFlare
 
   - name: ☁️CloudFlare
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    expected-status: 204
-    interval: 180
-    tolerance: 50
-    lazy: false
+    type: select
     use:
       - CloudFlare
 
