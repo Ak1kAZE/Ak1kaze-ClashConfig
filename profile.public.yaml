@@ -107,7 +107,7 @@ proxy-providers:
 
   YeLuYou:
     type: http
-    url: "__CF_SECRET_YeLuYou_SUB_URL__"
+    url: "__CF_SECRET_YELUYOU_SUB_URL__"
 
     interval: 86400
     path: ./YeLuYou.yaml
