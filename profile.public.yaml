@@ -343,7 +343,6 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     proxies:
-      - DIRECT
       - 全局机场
       - 🚀JMS
       - 🚀YeLuYou
@@ -352,6 +351,7 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 台湾节点
+      - DIRECT      
 
   #- name: 🛑 广告拦截
   #  type: select
