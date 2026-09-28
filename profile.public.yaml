@@ -96,7 +96,7 @@ proxy-providers:
     type: http
     url: "__CF_SECRET_JMS_SUB_URL__"
 
-    interval: 86400
+    interval: 21600
     path: ./JMS.yaml
     health-check:
       enable: true
