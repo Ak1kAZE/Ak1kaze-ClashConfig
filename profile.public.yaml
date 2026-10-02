@@ -303,12 +303,6 @@ proxy-groups:
     proxies:
       *G
 
-  - name: YouTube
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-    proxies:
-      *G
-
   - name: 谷歌服务
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Google.png
@@ -501,14 +495,6 @@ rule-providers:
     path: ./ruleset/Twitter.txt
     interval: 86400
 
-  YouTube:
-    type: http
-    behavior: classical
-    format: text
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list"
-    path: ./ruleset/YouTube.txt
-    interval: 86400
-
   Google:
     type: http
     behavior: classical
@@ -639,7 +625,6 @@ rules:
 
     # 基础规则集匹配
     - GEOSITE,google,谷歌服务
-    - GEOSITE,youtube,YouTube
     - GEOSITE,telegram,电报消息
     - GEOSITE,github,国外网站
     - GEOSITE,category-games@cn,国内直连
@@ -669,7 +654,6 @@ rules:
     - RULE-SET,Spotify,Spotify
     - RULE-SET,OpenAi,AI服务
     - RULE-SET,Twitter,Twitter
-    - RULE-SET,YouTube,YouTube    
     - RULE-SET,Google,谷歌服务
     - RULE-SET,Global,国外网站
     - RULE-SET,China,国内直连
