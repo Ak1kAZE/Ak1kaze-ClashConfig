@@ -230,7 +230,11 @@ proxy-groups:
       - ☁️CloudFlare
 
   - name: ☁️CloudFlare
-    type: select
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    expected-status: 204
+    interval: 180
+    tolerance: 50
     use:
       - CloudFlare
 
@@ -385,7 +389,6 @@ proxy-groups:
     expected-status: 204
     interval: 180
     tolerance: 50
-    lazy: false
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
       - CloudFlare
