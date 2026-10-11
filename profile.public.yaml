@@ -89,7 +89,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
-      lazy: false
       expected-status: 204
 
   JMS:
@@ -104,6 +103,7 @@ proxy-providers:
       interval: 180
       timeout: 3000
       expected-status: 204
+
 
   JMS-US:
     type: http
@@ -130,6 +130,7 @@ proxy-providers:
       interval: 180
       timeout: 3000
       expected-status: 204
+
 
 dns:
   enable: true
