@@ -105,12 +105,25 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  YeLuYou:
+  JMS-US:
     type: http
-    url: "__CF_SECRET_YELUYOU_SUB_URL__"
+    url: "__CF_SECRET_JMSUS_SUB_URL__"
 
     interval: 86400
-    path: ./YeLuYou.yaml
+    path: ./JMS.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
+  MESL:
+    type: http
+    url: "__CF_SECRET_MESL_SUB_URL__"
+
+    interval: 86400
+    path: ./MESL.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -226,7 +239,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
-      - 🚀YeLuYou
+      - 🚀MESL
       - ☁️CloudFlare
 
   - name: ☁️CloudFlare
@@ -239,10 +252,10 @@ proxy-groups:
     use:
       - JMS
 
-  - name: 🚀YeLuYou
+  - name: 🚀MESL
     type: select
     use:
-      - YeLuYou
+      - MESL
 
   - name: 国外网站
     type: select
@@ -250,7 +263,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
-      - 🚀YeLuYou
+      - 🚀MESL
       - ☁️CloudFlare
       - 香港节点
       - 日本节点
@@ -345,7 +358,7 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
-      - 🚀YeLuYou
+      - 🚀MESL
       - ☁️CloudFlare
       - 香港节点
       - 日本节点
@@ -375,7 +388,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
       - CloudFlare
-      - YeLuYou
+      - MESL
     filter: 港|🇭🇰|HK|(?i)Hong
 
 
@@ -388,7 +401,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
       - CloudFlare
-      - YeLuYou
+      - MESL
     filter: 日本|东京|🇯🇵|JP|(?i)Japan
 
   - name: 台湾节点
@@ -400,7 +413,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
       - CloudFlare
-      - YeLuYou
+      - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
 
 
@@ -413,7 +426,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
       - CloudFlare
-      - YeLuYou
+      - MESL
     filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
 
 
