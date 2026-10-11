@@ -239,6 +239,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
+      - 🚀JMS-US
       - 🚀MESL
       - ☁️CloudFlare
 
@@ -252,6 +253,13 @@ proxy-groups:
     use:
       - JMS
 
+
+  - name: 🚀JMS-US
+    type: select
+    use:
+      - JMS-US
+
+
   - name: 🚀MESL
     type: select
     use:
@@ -263,6 +271,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
+      - 🚀JMS-US
       - 🚀MESL
       - ☁️CloudFlare
       - 香港节点
@@ -358,6 +367,7 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
+      - 🚀JMS-US
       - 🚀MESL
       - ☁️CloudFlare
       - 香港节点
