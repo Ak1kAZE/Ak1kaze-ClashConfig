@@ -78,18 +78,6 @@ sniffer:
   - fhnfile.oss-cn-shenzhen.aliyuncs.com
 
 proxy-providers:
-  CloudFlare:
-    type: http
-    url: "__CF_SECRET_CLOUDFLARE_SUB_URL__"
-
-    interval: 21600
-    path: ./CloudFlare_new.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
 
   JMS:
     type: http
@@ -105,18 +93,19 @@ proxy-providers:
       expected-status: 204
 
 
-  JMS-US:
+  Yeluyou:
     type: http
-    url: "__CF_SECRET_JMSUS_SUB_URL__"
+    url: "__CF_SECRET_YELUYOU_SUB_URL__"
 
     interval: 86400
-    path: ./JMS.yaml
+    path: ./YELUYOU.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       expected-status: 204
+
 
   MESL:
     type: http
@@ -240,14 +229,9 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
-      - 🚀JMS-US
+      - 🚀野路由
       - 🚀MESL
-      - ☁️CloudFlare
 
-  - name: ☁️CloudFlare
-    type: select
-    use:
-      - CloudFlare
 
   - name: 🚀JMS
     type: select
@@ -255,10 +239,10 @@ proxy-groups:
       - JMS
 
 
-  - name: 🚀JMS-US
+  - name: 🚀野路由
     type: select
     use:
-      - JMS-US
+      - Yeluyou
 
 
   - name: 🚀MESL
@@ -272,9 +256,8 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
-      - 🚀JMS-US
+      - 🚀野路由
       - 🚀MESL
-      - ☁️CloudFlare
       - 香港节点
       - 日本节点
       - 美国节点
@@ -368,9 +351,8 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
-      - 🚀JMS-US
+      - 🚀野路由
       - 🚀MESL
-      - ☁️CloudFlare
       - 香港节点
       - 日本节点
       - 美国节点
