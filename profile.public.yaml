@@ -105,12 +105,12 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  JTTIxCF:
+  JTTI2CF:
     type: http
     url: "__CF_SECRET_JTTICF_SUB_URL__"
 
     interval: 86400
-    path: ./JTTIxCF.yaml
+    path: ./JTTI2CF.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -245,7 +245,7 @@ proxy-groups:
   - name: 🚀JTTIxCF
     type: select
     use:
-      - JTTIxCF
+      - JTTI2CF
 
   - name: 国外网站
     type: select
