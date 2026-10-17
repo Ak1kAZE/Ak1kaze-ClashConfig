@@ -92,12 +92,12 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  JMS_US:
+  JTTI:
     type: http
-    url: "__CF_SECRET_JMS1US_SUB_URL__"
+    url: "__CF_SECRET_JTTI_SUB_URL__"
 
     interval: 86400
-    path: ./JMS_US.yaml
+    path: ./JTTI.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -227,7 +227,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
-      - 🚀JMS_USA
+      - 🚀JTTI轻量云
       - 🚀MESL
 
 
@@ -237,10 +237,10 @@ proxy-groups:
       - JMS
 
 
-  - name: 🚀JMS_USA
+  - name: 🚀JTTI轻量云
     type: select
     use:
-      - JMS_US
+      - JTTI
 
   - name: 🚀MESL
     type: select
@@ -253,7 +253,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
-      - 🚀JMS_USA
+      - 🚀JTTI轻量云
       - 🚀MESL
       - 香港节点
       - 日本节点
@@ -348,7 +348,7 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
-      - 🚀JMS_USA
+      - 🚀JTTI轻量云
       - 🚀MESL
       - 香港节点
       - 日本节点
