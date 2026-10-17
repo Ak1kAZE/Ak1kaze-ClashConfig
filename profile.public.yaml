@@ -92,20 +92,18 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-
-  Yeluyou:
+  JMS_US:
     type: http
-    url: "__CF_SECRET_YELUYOU_SUB_URL__"
+    url: "__CF_SECRET_JMS1US_SUB_URL__"
 
     interval: 86400
-    path: ./YELUYOU.yaml
+    path: ./JMS_US.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 180
       timeout: 3000
       expected-status: 204
-
 
   MESL:
     type: http
@@ -229,7 +227,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
-      - 🚀野路由
+      - 🚀JMS_USA
       - 🚀MESL
 
 
@@ -239,11 +237,10 @@ proxy-groups:
       - JMS
 
 
-  - name: 🚀野路由
+  - name: 🚀JMS_USA
     type: select
     use:
-      - Yeluyou
-
+      - JMS_US
 
   - name: 🚀MESL
     type: select
@@ -256,7 +253,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
-      - 🚀野路由
+      - 🚀JMS_USA
       - 🚀MESL
       - 香港节点
       - 日本节点
@@ -351,7 +348,7 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
-      - 🚀野路由
+      - 🚀JMS_USA
       - 🚀MESL
       - 香港节点
       - 日本节点
