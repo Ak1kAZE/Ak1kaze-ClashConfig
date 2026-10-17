@@ -105,12 +105,12 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  MESL:
+  JTTIxCF:
     type: http
-    url: "__CF_SECRET_MESL_SUB_URL__"
+    url: "__CF_SECRET_JTTICF_SUB_URL__"
 
     interval: 86400
-    path: ./MESL.yaml
+    path: ./JTTIxCF.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -228,7 +228,7 @@ proxy-groups:
     proxies:
       - 🚀JMS
       - 🚀JTTI轻量云
-      - 🚀MESL
+      - 🚀JTTIxCF
 
 
   - name: 🚀JMS
@@ -242,10 +242,10 @@ proxy-groups:
     use:
       - JTTI
 
-  - name: 🚀MESL
+  - name: 🚀JTTIxCF
     type: select
     use:
-      - MESL
+      - JTTIxCF
 
   - name: 国外网站
     type: select
@@ -254,7 +254,7 @@ proxy-groups:
       - 全局机场
       - 🚀JMS
       - 🚀JTTI轻量云
-      - 🚀MESL
+      - 🚀JTTIxCF
       - 香港节点
       - 日本节点
       - 美国节点
@@ -349,7 +349,7 @@ proxy-groups:
       - 全局机场
       - 🚀JMS
       - 🚀JTTI轻量云
-      - 🚀MESL
+      - 🚀JTTIxCF
       - 香港节点
       - 日本节点
       - 美国节点
