@@ -118,6 +118,18 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
+  MESL:
+    type: http
+    url: "__CF_SECRET_MESL_SUB_URL__"
+
+    interval: 86400
+    path: ./MESL01.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
 
 dns:
   enable: true
@@ -227,15 +239,14 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
       - 🚀JMS
+      - 🚀MESL
       - 🚀JTTI轻量云
       - 🚀JTTIxCF
-
-
+      
   - name: 🚀JMS
     type: select
     use:
       - JMS
-
 
   - name: 🚀JTTI轻量云
     type: select
@@ -246,6 +257,11 @@ proxy-groups:
     type: select
     use:
       - JTTI2CF
+      
+  - name: 🚀MESL
+    type: select
+    use:
+      - MESL
 
   - name: 国外网站
     type: select
@@ -253,6 +269,7 @@ proxy-groups:
     proxies: &G
       - 全局机场
       - 🚀JMS
+      - 🚀MESL
       - 🚀JTTI轻量云
       - 🚀JTTIxCF
       - 香港节点
@@ -348,13 +365,14 @@ proxy-groups:
     proxies:
       - 全局机场
       - 🚀JMS
+      - 🚀MESL
       - 🚀JTTI轻量云
       - 🚀JTTIxCF
       - 香港节点
       - 日本节点
       - 美国节点
       - 台湾节点
-      - DIRECT      
+      - DIRECT
 
   #- name: 🛑 广告拦截
   #  type: select
@@ -380,6 +398,7 @@ proxy-groups:
       - JMS
       - JTTI
       - JTTI2CF
+      - MESL
     filter: 港|🇭🇰|HK|(?i)Hong
 
 
@@ -394,6 +413,7 @@ proxy-groups:
       - JMS
       - JTTI
       - JTTI2CF
+      - MESL
     filter: 日本|东京|🇯🇵|JP|(?i)Japan
 
   - name: 台湾节点
@@ -407,6 +427,7 @@ proxy-groups:
       - JMS
       - JTTI
       - JTTI2CF
+      - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
 
 
@@ -421,8 +442,8 @@ proxy-groups:
       - JMS
       - JTTI
       - JTTI2CF
+      - MESL
     filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
-
 
 
 
