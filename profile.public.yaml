@@ -240,24 +240,19 @@ proxy-groups:
     proxies:
       - 🚀JMS
       - 🚀MESL
-      - 🚀JTTI轻量云
-      - 🚀JTTIxCF
+      - 🚀JTTI自建
       
   - name: 🚀JMS
     type: select
     use:
       - JMS
 
-  - name: 🚀JTTI轻量云
+  - name: 🚀JTTI自建
     type: select
     use:
       - JTTI
+      - JTTI2CF      
 
-  - name: 🚀JTTIxCF
-    type: select
-    use:
-      - JTTI2CF
-      
   - name: 🚀MESL
     type: select
     use:
@@ -270,8 +265,7 @@ proxy-groups:
       - 全局机场
       - 🚀JMS
       - 🚀MESL
-      - 🚀JTTI轻量云
-      - 🚀JTTIxCF
+      - 🚀JTTI自建
       - 香港节点
       - 日本节点
       - 美国节点
@@ -366,8 +360,7 @@ proxy-groups:
       - 全局机场
       - 🚀JMS
       - 🚀MESL
-      - 🚀JTTI轻量云
-      - 🚀JTTIxCF
+      - 🚀JTTI自建
       - 香港节点
       - 日本节点
       - 美国节点
@@ -429,7 +422,6 @@ proxy-groups:
       - JTTI2CF
       - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
-
 
   - name: 美国节点
     type: url-test
