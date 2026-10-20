@@ -118,6 +118,19 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
+  JTTI2Gate:
+    type: http
+    url: "__CF_SECRET_JTTIGATE_SUB_URL__"
+
+    interval: 86400
+    path: ./JTTI2Gate.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
   MESL:
     type: http
     url: "__CF_SECRET_MESL_SUB_URL__"
@@ -251,7 +264,8 @@ proxy-groups:
     type: select
     use:
       - JTTI
-      - JTTI2CF      
+      - JTTI2CF
+      - JTTI2Gate
 
   - name: 🚀MESL
     type: select
