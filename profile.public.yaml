@@ -402,7 +402,7 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
-      - JMS
+      - JTTI2Gate
       - JTTI
       - JTTI2CF
       - MESL
@@ -417,7 +417,7 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
-      - JMS
+      - JTTI2Gate
       - JTTI
       - JTTI2CF
       - MESL
@@ -431,7 +431,7 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
-      - JMS
+      - JTTI2Gate
       - JTTI
       - JTTI2CF
       - MESL
@@ -445,7 +445,7 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
-      - JMS
+      - JTTI2Gate
       - JTTI
       - JTTI2CF
       - MESL
