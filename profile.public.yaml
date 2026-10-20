@@ -265,6 +265,10 @@ proxy-groups:
     use:
       - JTTI
       - JTTI2CF
+
+  - name: 🚀JTTI家宽
+    type: select
+    use:
       - JTTI2Gate
 
   - name: 🚀MESL
@@ -280,6 +284,7 @@ proxy-groups:
       - 🚀JMS
       - 🚀MESL
       - 🚀JTTI自建
+      - 🚀JTTI家宽
       - 香港节点
       - 日本节点
       - 美国节点
@@ -375,6 +380,7 @@ proxy-groups:
       - 🚀JMS
       - 🚀MESL
       - 🚀JTTI自建
+      - 🚀JTTI家宽
       - 香港节点
       - 日本节点
       - 美国节点
