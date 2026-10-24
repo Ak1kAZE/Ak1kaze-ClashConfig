@@ -105,19 +105,6 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  JTTI2CF:
-    type: http
-    url: "__CF_SECRET_JTTICF_SUB_URL__"
-
-    interval: 21600
-    path: ./JTTI2CF.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
-
   JTTI2Gate:
     type: http
     url: "__CF_SECRET_JTTIGATE_SUB_URL__"
@@ -264,7 +251,6 @@ proxy-groups:
     type: select
     use:
       - JTTI
-      - JTTI2CF
 
   - name: 🚀JTTI家宽
     type: select
@@ -410,7 +396,6 @@ proxy-groups:
     use:
       - JTTI2Gate
       - JTTI
-      - JTTI2CF
       - MESL
     filter: 港|🇭🇰|HK|(?i)Hong
 
@@ -425,7 +410,6 @@ proxy-groups:
     use:
       - JTTI2Gate
       - JTTI
-      - JTTI2CF
       - MESL
     filter: 日本|东京|🇯🇵|JP|(?i)Japan
 
@@ -439,7 +423,6 @@ proxy-groups:
     use:
       - JTTI2Gate
       - JTTI
-      - JTTI2CF
       - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
 
@@ -453,7 +436,6 @@ proxy-groups:
     use:
       - JTTI2Gate
       - JTTI
-      - JTTI2CF
       - MESL
     filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
 
