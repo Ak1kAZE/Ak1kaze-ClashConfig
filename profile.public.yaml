@@ -240,19 +240,19 @@ proxy-groups:
     proxies:
       - 🚀JMS
       - 🚀MESL
-      - 🚀JTTI自建
+      - 🚀VPS自建
       
   - name: 🚀JMS
     type: select
     use:
       - JMS
 
-  - name: 🚀JTTI自建
+  - name: 🚀VPS自建
     type: select
     use:
       - JTTI
 
-  - name: 🚀JTTI家宽
+  - name: 🚀VPS家宽
     type: select
     use:
       - JTTI2Gate
@@ -269,8 +269,8 @@ proxy-groups:
       - 全局机场
       - 🚀JMS
       - 🚀MESL
-      - 🚀JTTI自建
-      - 🚀JTTI家宽
+      - 🚀VPS自建
+      - 🚀VPS家宽
       - 香港节点
       - 日本节点
       - 美国节点
@@ -362,16 +362,8 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
     proxies:
-      - 全局机场
-      - 🚀JMS
-      - 🚀MESL
-      - 🚀JTTI自建
-      - 🚀JTTI家宽
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
-      - DIRECT
+      *G
+
 
   #- name: 🛑 广告拦截
   #  type: select
@@ -450,7 +442,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Domain_For_Clash.txt"
     path: ./ruleset/Apple_All.txt
     interval: 86400
-    
+
   AppleAPN:
     behavior: classical
     format: text
