@@ -414,8 +414,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
     use:
-      - JTTI2Gate
-      - JTTI
       - MESL
     filter: 港|🇭🇰|HK|(?i)Hong
 
@@ -428,10 +426,9 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
     use:
-      - JTTI2Gate
-      - JTTI
       - MESL
     filter: 日本|东京|🇯🇵|JP|(?i)Japan
+
 
   - name: 台湾节点
     type: url-test
@@ -441,8 +438,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     use:
-      - JTTI2Gate
-      - JTTI
       - MESL
     filter: 台|🇨🇳|🇹🇼|TW|(?i)Taiwan
 
@@ -454,8 +449,6 @@ proxy-groups:
     tolerance: 50
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
     use:
-      - JTTI2Gate
-      - JTTI
       - MESL
     filter: 美|洛杉矶|🇺🇸|US|(?i)States|American
 
