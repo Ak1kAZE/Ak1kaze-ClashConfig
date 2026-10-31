@@ -118,6 +118,32 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
+  FXTRANSIT:
+    type: http
+    url: "__CF_SECRET_FXTRANSIT_SUB_URL__"
+
+    interval: 86400
+    path: ./FXTRANSIT.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
+  FXTRANSIT2Gate:
+    type: http
+    url: "__CF_SECRET_FXTRANSITGATE_SUB_URL__"
+
+    interval: 86400
+    path: ./FXTRANSIT2Gate.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
   MESL:
     type: http
     url: "__CF_SECRET_MESL_SUB_URL__"
@@ -251,11 +277,13 @@ proxy-groups:
     type: select
     use:
       - JTTI
+      - FXTRANSIT
 
   - name: 🚀VPS家宽
     type: select
     use:
       - JTTI2Gate
+      - FXTRANSIT2Gate
 
   - name: 🚀MESL
     type: select
