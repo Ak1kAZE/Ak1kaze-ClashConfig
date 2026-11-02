@@ -79,12 +79,25 @@ sniffer:
 
 proxy-providers:
 
-  JMS:
+  BWG_JP:
     type: http
-    url: "__CF_SECRET_JMS_SUB_URL__"
+    url: "__CF_SECRET_BWGJP_SUB_URL__"
 
     interval: 86400
-    path: ./JMS.yaml
+    path: ./BWG_JP.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
+  BWG_JP2Gate:
+    type: http
+    url: "__CF_SECRET_BWGJPGATE_SUB_URL__"
+
+    interval: 86400
+    path: ./BWG_JP_Gate.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -264,14 +277,15 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
-      - 🚀JMS
+      - 🚀搬瓦工自建
       - 🚀MESL
       - 🚀VPS自建
       
-  - name: 🚀JMS
+  - name: 🚀搬瓦工自建
     type: select
     use:
-      - JMS
+      - BWG_JP
+      - BWG_JP2Gate
 
   - name: 🚀VPS自建
     type: select
@@ -284,21 +298,23 @@ proxy-groups:
     use:
       - JTTI2Gate
       - FXTRANSIT2Gate
+      - BWG_JP2Gate
 
   - name: 🚀MESL
     type: select
     use:
       - MESL
 
+
   - name: 国外网站
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     proxies: &G
       - 全局机场
-      - 🚀JMS
-      - 🚀MESL
+      - 🚀搬瓦工自建
       - 🚀VPS自建
       - 🚀VPS家宽
+      - 🚀MESL
       - 香港节点
       - 日本节点
       - 美国节点
