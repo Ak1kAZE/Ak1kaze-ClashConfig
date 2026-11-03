@@ -396,6 +396,12 @@ proxy-groups:
     proxies:
       *G
 
+  - name: Discord
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Discord.png
+    proxies:
+      *G
+
   - name: 自定义规则
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Server.png
@@ -584,6 +590,13 @@ rule-providers:
     path: ./ruleset/Game.txt
     interval: 86400
 
+  Discord:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.yaml"
+    interval: 86400
+    path: ./ruleset/Discord.yaml
+
   Custom:
     type: http
     behavior: classical
@@ -721,6 +734,7 @@ rules:
     - RULE-SET,Twitter,Twitter
     - RULE-SET,YouTube,YouTube
     - RULE-SET,Google,谷歌服务
+    - RULE-SET,Discord,Discord
     - RULE-SET,Global,国外网站
     - RULE-SET,China,国内直连
     # 国内与国外保底分流规则
