@@ -92,18 +92,6 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  BWG_JP2Gate:
-    type: http
-    url: "__CF_SECRET_BWGJPGATE_SUB_URL__"
-
-    interval: 86400
-    path: ./BWG_JP_Gate.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
 
   JTTI:
     type: http
@@ -118,44 +106,6 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-  JTTI2Gate:
-    type: http
-    url: "__CF_SECRET_JTTIGATE_SUB_URL__"
-
-    interval: 86400
-    path: ./JTTI2Gate.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
-
-  FXTRANSIT:
-    type: http
-    url: "__CF_SECRET_FXTRANSIT_SUB_URL__"
-
-    interval: 86400
-    path: ./FXTRANSIT.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
-
-  FXTRANSIT2Gate:
-    type: http
-    url: "__CF_SECRET_FXTRANSITGATE_SUB_URL__"
-
-    interval: 86400
-    path: ./FXTRANSIT2Gate.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
 
   MESL:
     type: http
@@ -277,28 +227,15 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
-      - 🚀搬瓦工自建
       - 🚀MESL
       - 🚀VPS自建
-      
-  - name: 🚀搬瓦工自建
-    type: select
-    use:
-      - BWG_JP
-      - BWG_JP2Gate
 
   - name: 🚀VPS自建
     type: select
     use:
       - JTTI
-      - FXTRANSIT
+      - BWG_JP
 
-  - name: 🚀VPS家宽
-    type: select
-    use:
-      - JTTI2Gate
-      - FXTRANSIT2Gate
-      - BWG_JP2Gate
 
   - name: 🚀MESL
     type: select
@@ -311,9 +248,7 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
     proxies: &G
       - 全局机场
-      - 🚀搬瓦工自建
       - 🚀VPS自建
-      - 🚀VPS家宽
       - 🚀MESL
       - 香港节点
       - 日本节点
