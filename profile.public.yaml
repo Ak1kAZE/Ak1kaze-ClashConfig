@@ -579,6 +579,13 @@ rule-providers:
     path: ./ruleset/China.txt
     interval: 86400
 
+  CloudFalre:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflare/Cloudflare.yaml"
+    interval: 86400
+    path: ./ruleset/Cloudflare.yaml
+
   #Advertising:
   #  behavior: classical
   #  type: http
@@ -602,7 +609,7 @@ rules:
 
     - RULE-SET,AppleAPN,苹果APN,no-resolve
     - RULE-SET,Apple,苹果服务
-
+    - RULE-SET,CloudFalre,DIRECT
     # 泄漏测试站点强制走代理，避免 geosite 误判为国内直连
     - DOMAIN-SUFFIX,browserleaks.com,国外网站
     - DOMAIN-SUFFIX,browserleaks.org,国外网站
