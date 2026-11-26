@@ -92,13 +92,24 @@ proxy-providers:
       timeout: 3000
       expected-status: 204
 
-
   JTTI:
     type: http
     url: "__CF_SECRET_JTTI_SUB_URL__"
 
     interval: 86400
     path: ./JTTI.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 180
+      timeout: 3000
+      expected-status: 204
+
+  Panstar:
+    type: http
+    url: "__CF_SECRET_PANSTAR_SUB_URL__"
+    interval: 86400
+    path: ./PANSTAR.yaml
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -230,6 +241,7 @@ proxy-groups:
       - 🚀MESL
       - 🚀Jtti-日本
       - 🚀BWG-日本大坂
+      - 🚀PANSTAR-日本
 
   - name: 🚀Jtti-日本
     type: select
@@ -240,6 +252,11 @@ proxy-groups:
     type: select
     use:
       - BWG_JP
+
+  - name: 🚀PANSTAR-日本
+    type: select
+    use:
+      - Panstar
 
   - name: 🚀MESL
     type: select
@@ -254,6 +271,7 @@ proxy-groups:
       - 全局机场
       - 🚀Jtti-日本
       - 🚀BWG-日本大坂
+      - 🚀PANSTAR-日本
       - 🚀MESL
       - 香港节点
       - 日本节点
