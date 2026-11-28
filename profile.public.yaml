@@ -118,19 +118,6 @@ proxy-providers:
       expected-status: 204
 
 
-  MESL:
-    type: http
-    url: "__CF_SECRET_MESL_SUB_URL__"
-
-    interval: 86400
-    path: ./MESL01.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 180
-      timeout: 3000
-      expected-status: 204
-
 dns:
   enable: true
   listen: 0.0.0.0:1053
@@ -238,30 +225,24 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
     proxies:
-      - 🚀MESL
-      - 🚀Jtti-日本
-      - 🚀BWG-日本大坂
-      - 🚀PANSTAR-日本
+      - 🚀Jtti-JP
+      - 🚀瓦工-Osaka
+      - 🚀PANSTAR-JP
 
-  - name: 🚀Jtti-日本
+  - name: 🚀Jtti-JP
     type: select
     use:
       - JTTI
 
-  - name: 🚀BWG-日本大坂
+  - name: 🚀瓦工-Osaka
     type: select
     use:
       - BWG_JP
 
-  - name: 🚀PANSTAR-日本
+  - name: 🚀PANSTAR-JP
     type: select
     use:
       - Panstar
-
-  - name: 🚀MESL
-    type: select
-    use:
-      - MESL
 
 
   - name: 国外网站
@@ -272,7 +253,6 @@ proxy-groups:
       - 🚀Jtti-日本
       - 🚀BWG-日本大坂
       - 🚀PANSTAR-日本
-      - 🚀MESL
       - 香港节点
       - 日本节点
       - 美国节点
